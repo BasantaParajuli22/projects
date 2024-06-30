@@ -1,4 +1,4 @@
-//library managemnet system proper code
+//library managemnet system  not completed...
 
 
 import java.util.Scanner;
