@@ -35,13 +35,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 <body>
     <h1>Login</h1>
+
     <?php if (isset($error_message)) { ?>
-        <p style="color: red;"><?php echo $error_message; ?></p>
+        <p style="color: red;"> <?php echo $error_message; ?> </p>
     <?php } ?>
+
     <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+
         Username: <input type="text" name="username"><br>
         Password: <input type="password" name="password"><br>
         <input type="submit" name="submit" value="Submit">
+
     </form>
 </body>
 </html>
