@@ -46,6 +46,7 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
         $stmt->bind_param("sss",$username,$email,$password);
         if($stmt->execute()){
             echo" Reggistration successful";
+            $_SESSION["username"] = $username;
             header('location:login.php');
             exit();
         }else{

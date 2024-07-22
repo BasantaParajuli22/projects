@@ -10,19 +10,23 @@ if($conn->connect_error){
 }
 
 if($_SERVER['REQUEST_METHOD']=="POST"){
-    $title = $_POST['title'];
     $content = $_POST['content'];
     $username = $_SESSION['username'];
 
-    $stmt = $conn->prepare("INSERT INTO post_table (title, content, username) VALUES (?, ?, ?);");
-    $stmt->bind_param("sss", $title,$content,$username);
+    $stmt = $conn->prepare("INSERT INTO comment_table (username, content) VALUES (?,?);");
+    if ($stmt === false) {
+        die("Prepare statement failed: " . $conn->connect_error);
+        
+    }
+    $stmt->bind_param("ss", $username, $content);
+
     if($stmt->execute()){
+        echo" comment successful";
         $_SESSION["username"] = $username;
-        $_SESSION['message'] = "Posted successful! Congrats, $username.";
-        header("location: /blog_post/$username");//double quotation compulsory
+        header('location:display.php');
         exit();
     }else{
-        die("prepared statement failed".$stmt->error);
+        die(" execution failed".$stmt->error);
     }
     $stmt->close();
 }

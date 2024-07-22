@@ -10,10 +10,11 @@ if($conn->connect_error){
 // Check if the form has been submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Get the submitted username and password from form
-    $username = $_POST["username"];
-    $password = $_POST["password"]; 
-    
-    $sql ="SELECT password FROM blog_table WHERE username = ?";
+    $username = $_POST['username'];
+    $password = $_POST['password']; 
+    // echo $username;
+    // echo $password;
+    $sql ="SELECT username, password FROM blog_table WHERE username = ?";
     $stmt = $conn->prepare($sql);
     if($stmt === false){
         echo "prepare stmt failed " . htmlspecialchars($conn->error) ;
@@ -22,12 +23,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Bind parameters
     $stmt->bind_param("s",$username);
     $stmt->execute();
-
-    // Bind result variables
-    $stmt->bind_result($stored_password);//variables should be same as selected
-    $stmt->fetch();
+    // Bind result stores result of prepared stmt
+    $stmt->bind_result($db_username,$db_password);
+    if($stmt->fetch()){
     
-    if ($password == $stored_password) {
+    if ($password == $db_password) {
         // Set the session variables
         $_SESSION["username"] = $username;
         $_SESSION["loggedin"] = true;
@@ -36,7 +36,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         exit();
     } else {
         // Display an error message
-        $error_message = "Invalid username or password.";
+        echo "Invalid  password.";
+    }
+    }else{
+        echo "Invalid  user.";
     }
     $stmt->close();
     $conn->close();
@@ -62,5 +65,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <button type="submit">Login</button>
         <button type="submit" ><a href="register.php">Register</a></button>
     </form>
+    <?php if (isset($error_message)) { echo "<p>$error_message</p>"; } ?>
 </body>
 </html>

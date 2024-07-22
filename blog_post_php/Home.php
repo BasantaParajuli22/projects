@@ -8,6 +8,7 @@ if (!isset($_SESSION['username'])) {
 }
 // Fetch username from session
 $loggedInUser = $_SESSION['username'];
+//fetches username form url
 $url_username = $_GET['username'] ;
 // Check if the username in URL matches the logged-in user
 if ($url_username !== $loggedInUser) {
@@ -50,6 +51,8 @@ if ($url_username !== $loggedInUser) {
         unset($_SESSION['message']);
     }
     ?></h2>
+</form>
+    <button type="submit" ><a href="display.php">Dispaly all</a></button> 
     <button type="submit" ><a href="register.php">Register</a></button> 
     <button type="submit" ><a href="logout.php">logout</a></button><br>
 
