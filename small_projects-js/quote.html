@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Quote Generator</title>
+</head>
+<body>
+    <h1>Random Quote And Number Generator</h1>
+    <button id="QuoteButton">Generate</button><br><br>
+    <div>Quote:<p id="quoteDisplay"></p></div>
+    <div>Lucky number:<p id="luckyNumber"></p></div>
+
+    <script>
+        const quotes = [
+            "The best way to predict the future is to invent it. - Alan Kay",
+            "Life is 10% what happens to us and 90% how we react to it. - Charles R. Swindoll",
+            "The only way to do great work is to love what you do. - Steve Jobs",
+            "If you can dream it, you can achieve it. - Zig Ziglar",
+            "if u r bad then i am ur dad - ur Momma",
+            "Hello world - Ummm"
+        ];
+
+        document.getElementById("QuoteButton").addEventListener("click", function() {
+            //to generate random index with max lenght of array
+            let randomIndex = Math.floor(Math.random()*quotes.length);
+            let randomNumber = Math.ceil(Math.random() *1000);
+
+            document.getElementById("quoteDisplay").textContent = quotes[randomIndex];
+            document.getElementById("luckyNumber").textContent = randomNumber;
+        });
+    </script>
+</body>
+</html>

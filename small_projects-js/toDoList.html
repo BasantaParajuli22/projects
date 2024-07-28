@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+    <style>
+        .cross {
+            text-decoration: line-through;
+        }
+    </style>
+</head>
+<body>
+    <h1>To-Do List</h1>
+    <input type="text" id="taskInput" placeholder="New task">
+    <button id="addTaskButton">Add Task</button>
+    <ol id="taskList"></ol>
+
+    <script>
+        document.getElementById("addTaskButton").addEventListener("click", function() {
+            let taskInput = document.getElementById("taskInput");
+            let taskValue = taskInput.value;
+            if (taskValue) {
+                let taskList = document.getElementById("taskList");
+
+                let list = document.createElement("li");//creating li
+                list.textContent = taskValue + " ";//list textContent should be added to be displayed
+                taskList.appendChild(list);//making li child of ul
+
+                taskInput.value="";//clearing input form data
+
+                list.addEventListener("click",function(){//if clicked toggle class
+                    list.classList.toggle("cross");
+                });
+
+                let removeButton = document.createElement("button");//adding remove button 
+                removeButton.textContent = "remove";
+                list.appendChild(removeButton);//button as child of li
+
+                removeButton.addEventListener("click",function(){//if clicked remove child list
+                    taskList.removeChild(list);
+                });
+            }
+        });
+    </script>
+</body>
+</html>
