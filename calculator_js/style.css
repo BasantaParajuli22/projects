@@ -1,0 +1,30 @@
+.h2{
+    text-align: center;
+}
+.container{
+    padding: 5%;
+    margin: 5% 20%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+    width: 50%;
+    text-align: center;
+    border: 2px solid black;
+}
+.input{
+    border: 3px solid black;
+    border-radius: 5px;
+    height: 40px;
+    font-size: 15px;
+}
+.row{
+    margin: 10px 30px;
+}
+.button{
+    border: 1px solid black;
+    border-radius: 5px;
+    cursor: pointer;
+    height: 40px;
+    width: 40px;
+}
