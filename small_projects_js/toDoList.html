@@ -3,45 +3,91 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>To-Do List</title>
+    <title>To do list n toggle</title>
     <style>
-        .cross {
-            text-decoration: line-through;
-        }
+    body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        margin-top: 50px;
+    }
+    input, button {
+        padding: 10px 20px;
+        font-size: 16px;
+    }
+
+    .hidden {
+        display: none;
+    }
+    .visible {
+        display: block;
+    }
+    .red{
+        color: rgb(255, 0, 0);
+    }
+    ul{
+        list-style-type: none;
+    }
+    .cross {
+        text-decoration: line-through;
+    }
     </style>
 </head>
 <body>
-    <h1>To-Do List</h1>
-    <input type="text" id="taskInput" placeholder="New task">
+
+    <h1>Hello, u can add task n toggle</h1>
+   <input type="text" id="taskInput" placeholder="New task">
     <button id="addTaskButton">Add Task</button>
-    <ol id="taskList"></ol>
+    <ul id="taskList"></ul>
+
+
+    <button id="toggleButton">Toggle Text</button>
+    <p id="toggleText" class="visible">This is some text that can be toggled.</p>
+
 
     <script>
         document.getElementById("addTaskButton").addEventListener("click", function() {
-            let taskInput = document.getElementById("taskInput");
-            let taskValue = taskInput.value;
-            if (taskValue) {
-                let taskList = document.getElementById("taskList");
+    let taskInput = document.getElementById("taskInput");
+    let taskValue = taskInput.value;
+    if (taskValue) {
+        let taskList = document.getElementById("taskList");
 
-                let list = document.createElement("li");//creating li
-                list.textContent = taskValue + " ";//list textContent should be added to be displayed
-                taskList.appendChild(list);//making li child of ul
+        let list = document.createElement("li");//creating li
+        list.textContent = taskValue + " ";//list textContent should be added to be displayed
+        taskList.appendChild(list);//making li child of ul
 
-                taskInput.value="";//clearing input form data
+        taskInput.value="";//clearing input form data
 
-                list.addEventListener("click",function(){//if clicked toggle class
-                    list.classList.toggle("cross");
-                });
-
-                let removeButton = document.createElement("button");//adding remove button 
-                removeButton.textContent = "remove";
-                list.appendChild(removeButton);//button as child of li
-
-                removeButton.addEventListener("click",function(){//if clicked remove child list
-                    taskList.removeChild(list);
-                });
-            }
+        list.addEventListener("click",function(){//if clicked toggle class
+            list.classList.toggle("cross");
         });
+
+        let removeButton = document.createElement("button");//adding remove button 
+        removeButton.textContent = "remove";
+        list.appendChild(removeButton);//button as child of li
+
+        removeButton.addEventListener("click",function(){//if clicked remove child list
+            taskList.removeChild(list);
+        });
+    }
+});
+
+
+//changing text css to hidden or visible
+document.getElementById("toggleButton").addEventListener("click", function() {
+    let toggleText = document.getElementById("toggleText");
+
+    if (toggleText.classList.contains("visible")) {//checking if toggleText contains visible class
+        
+        toggleText.classList.remove("visible");
+        toggleText.classList.add("hidden");
+        toggleText.classList.remove("red");
+    } else {
+        toggleText.classList.remove("hidden");
+        toggleText.classList.add("visible");
+        toggleText.classList.add("red");    
+    }
+});
+
     </script>
 </body>
 </html>

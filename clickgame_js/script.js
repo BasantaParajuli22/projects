@@ -1,6 +1,7 @@
 let block = document.getElementById("div-inside");
 let gameOverDisplay = document.getElementById("game_over");
 let restartDisplay = document.getElementById("restart");
+let high_score_reset = document.getElementById("high_score_reset");
 let positions = [];
 
 // Generate random positions based on viewport size=
@@ -76,23 +77,27 @@ function showrestartDisplay(){
 }
 
 //Highscore functions::
+    
+    //resetting local storage highscore
+    high_score_reset.addEventListener("click",function(){
+         localStorage.setItem('highScore', 0);
+    });
     // Function to get the high score from localStorage
     function getHighScore() {
-        localStorage.setItem('highSccore', 0);//resetting local storage
-        return localStorage.getItem('highSccore');
+        return localStorage.getItem('highScore');
     }
     // Function to set the high score in localStorage
     function setHighScore(score) {
-        localStorage.setItem('highSccore', score);
+        localStorage.setItem('highScore', score);
     }
     // Function to check if the current score is a high score
     function checkHighScore(currentScore) {
-        let highScore = getHighScore();
+        let highScore = getHighScore(score);
         if (currentScore > highScore) {
             setHighScore(currentScore);
             document.getElementById("high_score").innerText = `New High Score: ${currentScore}`;
         } else {
-            document.getElementById("high_score").innerText = "High Score:" + highScore;
+            document.getElementById("high_score").innerText = `High Score: ${highScore}`;
         }
     }
 
