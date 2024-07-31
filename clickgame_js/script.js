@@ -28,26 +28,36 @@ block.addEventListener("click", function() {
     currentIndex = (currentIndex + 1) % positions.length;//looping 
     scoreAdd += 1;//adding score
     console.log(scoreAdd);  
+    
     document.getElementById("score").innerText = `Score: ${scoreAdd}`;  
+
     event.stopPropagation(); // to prevent the block click event from triggering the document click event.
 });
 
+//if the click target is not the block
 document.addEventListener("click", function(event) {
-    // Check if the click target is not the block
+
     if (event.target !== block && event.target !== gameOverDisplay && event.target !== restartDisplay) {
         //document.getElementById("game_over").innerHTML = "GAMe_over";
         showgameOverDisplay();
         restartDisplay.style.display = "block";
+
+        let currentScore = scoreAdd;
+        console.log(currentScore);
+        checkHighScore(currentScore); // Check and update the high score 
+        
     }
 });  
 
-function showgameOverDisplay(){//game over function
+//game over function
+function showgameOverDisplay(){
     block.style.display = "none";
     gameOverDisplay.style.display = "block";
     restartDisplay.style.display = "block";
 }
 
-restartDisplay.addEventListener("click", function() {//if restart is pressed
+//if restart is pressed
+restartDisplay.addEventListener("click", function() {
     showrestartDisplay();
 }); 
 //reset function
@@ -65,6 +75,26 @@ function showrestartDisplay(){
     block.style.top = `0px`;
 }
 
+//Highscore functions::
+    // Function to get the high score from localStorage
+    function getHighScore() {
+        localStorage.setItem('highSccore', 0);//resetting local storage
+        return localStorage.getItem('highSccore');
+    }
+    // Function to set the high score in localStorage
+    function setHighScore(score) {
+        localStorage.setItem('highSccore', score);
+    }
+    // Function to check if the current score is a high score
+    function checkHighScore(currentScore) {
+        let highScore = getHighScore();
+        if (currentScore > highScore) {
+            setHighScore(currentScore);
+            document.getElementById("high_score").innerText = `New High Score: ${currentScore}`;
+        } else {
+            document.getElementById("high_score").innerText = "High Score:" + highScore;
+        }
+    }
 
 // generates random numbers if screen is resized
 window.addEventListener("resize", function() {
