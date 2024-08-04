@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Date Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: #f0f0f0;
+        }
+        .date-info {
+            margin-bottom: 10px;
+            padding: 10px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        h2 {
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Current Date and Time Details</h2>
+    <div id="clock">00:00:00</div><br>
+    <div class="date-info" id="date-details"></div>
+   
+    <script> function updateClock(){
+        const datee = new Date();
+        const hours = String(datee.getHours()).padStart(2, '0');//Pads the string to ensure it has at least 2 characters.
+        const minutes = String(datee.getMinutes()).padStart(2, '0');
+        const second = String(datee.getSeconds()).padStart(2, '0');
+        const millisecond = String(datee.getMilliseconds()).padStart(3, '0');
+        
+        const timeString = ` ${hours}: ${minutes}: ${second}: ${millisecond}`;
+        document.getElementById("clock").innerText = timeString; 
+        console.log(timeString);
+    }
+    setInterval(updateClock, 1000);  // Update every second
+    updateClock(); // Initialize clock display
+    
+    
+    function displayDateDetails() {
+        const now = new Date();
+        const details = `
+            Full Date: ${now.toString()}<br>
+            Year: ${now.getFullYear()}<br>
+            Month: ${now.getMonth() + 1} (0-based index)<br>
+            Date: ${now.getDate()}<br>
+            Day of the Week: ${now.getDay()} (0=Sunday, 6=Saturday)<br>
+            Hours: ${now.getHours()}<br>
+            Minutes: ${now.getMinutes()}<br>
+            Seconds: ${now.getSeconds()}<br>
+            Milliseconds: ${now.getMilliseconds()}<br>
+            Timezone Offset: ${now.getTimezoneOffset()} minutes<br>
+            ISO String: ${now.toISOString()}<br>
+            Locale Date String: ${now.toLocaleDateString()}<br>
+            Locale Time String: ${now.toLocaleTimeString()}<br>
+            Locale String: ${now.toLocaleString()}
+        `;
+        document.getElementById('date-details').innerHTML = details;
+    }
+    
+    displayDateDetails(); // Call the function to display date details
+     </script>
+</body>
+</html>
