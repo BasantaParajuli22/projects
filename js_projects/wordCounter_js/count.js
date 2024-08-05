@@ -14,8 +14,8 @@ document.getElementById('textInput').addEventListener('input', function(event) {
 
 //Remove Falsy Values:
 let values = [0, 1, false, true, "   ", "", "non-empty"];
-let result = values.filter(Boolean);
-console.log(result);  // [1, true, '   ', 'non-empty']
+let result1 = values.filter(Boolean);
+console.log(result1);  // [1, true, '   ', 'non-empty']
 
 //Remove Empty Strings:
 let words = ["apple", "   ", "banana", " ", "orange"]; 
@@ -32,3 +32,15 @@ console.log(result3);
 let text2 = "  apple,  banana,,orange";
 let result4 = text2.trim().split(",").filter(item => item !== "");
 console.log(result4);// ['apple', '  banana', 'orange']
+
+
+let words2 = ["apple", "banana", "orange", "kiwi", "A","a","c"];
+// /^[aeiou]/: Matches strings that start with a vowel
+// (to handle both uppercase and lowercase vowels) add the i flag to the regular expression
+//.test(word): Checks if the regular expression matches the word
+let result5 = words2.filter(word =>   /^[aeiou]/i.test(word));//if first letter vowel
+let result6 = words2.filter(word =>   /[aeiou]/i.test(word));//if any vowel
+let result7 = words2.filter(word => ! /^[aeiou]/i.test(word));//if no first letter vowel
+console.log(result5);//['apple', 'orange', 'A', 'a']
+console.log(result6);// ['apple', 'banana', 'orange', 'kiwi', 'A', 'a']
+console.log(result7);//['banana', 'kiwi', 'c']
