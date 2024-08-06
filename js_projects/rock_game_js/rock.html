@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock, Paper, Scissors Game</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin: 10px;
+        }
+        #result {
+            font-size: 20px;
+            margin-top: 10px;
+        }
+        .scoreSystem{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .drawDiv{
+            margin-top: 0px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="scoreSystem"><h1>Score::</h1> </div>
+    <button onclick="resetScore()">Reset all Scores</button>
+    <div class="scoreSystem">
+        <div> <h2>Ai Score::: </h2></div><br>
+             <div id="aiScore"  ></div>
+        <div> <h2> Your score :::</h2> </div><br>
+            <div  id="myScore" ></div>
+    </div>
+    <div class="drawDiv">
+        <div>  <h2>Draw  :::</h2></div>
+        <div  id="drawScore" ></div>
+    </div>
+        
+
+    <h1>Rock, Paper, Scissors</h1>
+    <button onclick="playGame('rock')">Rock</button>
+    <button onclick="playGame('paper')">Paper</button>
+    <button onclick="playGame('scissors')">Scissors</button>
+
+    <div id="result"></div>
+
+    <script src="rock.js"></script>
+</body>
+</html>
