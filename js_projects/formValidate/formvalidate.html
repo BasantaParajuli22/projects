@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Validator</title>
+    <link rel="stylesheet" href="valid.css">
+    <style>
+
+    </style>
+</head>
+<body>
+<div class="mainContainer">
+    <div class="headtitle"><h2>Registration Form</h2></div>
+
+    <form id="registrationForm">
+        <div  class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" name="name" id="name"  required>
+            <span id="nameError" class="error"></span>
+        </div>
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="text" name="email" id="email" required>
+            <span id="emailError" class="error"></span>
+        </div>
+        <div  class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" name="password" id="password"  required>
+            <span id="passwordError" class="error"></span>
+            
+        </div>
+        <div class="form-group">
+                <label for="confirmpassword">Password:</label>
+                <input type="password" name="confirmpassword" id="confirmpassword"  placeholder="Confirm your password" required>
+                <span id="confirmpasswordError" class="error"></span>
+
+        </div>
+
+        <div class="form-group">
+            <label for="country">Country:</label>
+            <select name="country" id="selectcountry">
+                <option value="nepal">Nepal</option>
+                <option value="india">China</option>
+                <option value="australia">Australia</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="gender">Gender:</label>
+            <input type="radio" id="gender" name="genderGroup" value="male" >Male
+            <input type="radio" id="gender" name="genderGroup" value="female">Female
+        </div>
+
+        <div class="form-group">
+            <label for="terms">Terms and conditoins:</label>
+            <input type="checkbox" id="terms" name="terms" required>I accept all the terms and conditions 
+            <a href="#">terms and conditions</a>
+        </div>
+
+        <button type="submit">Submit</button>
+    </form>
+
+</div>
+    <script src="validate.js"></script>
+</body>
+</html>

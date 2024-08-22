@@ -1,0 +1,95 @@
+*{
+    box-sizing: border-box;
+    margin: 0%;
+    padding: 0%;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.mainContainer{
+
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.headtitle {
+    margin-top: 0%;
+    text-align: center;
+    color: #333;
+}
+
+#registrationForm {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 100%;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="password"]:focus,
+.form-group input[type="number"]:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: #5cb85c;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="number"],
+select {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+.error {
+    color: red;
+    font-size: 12px;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #5cb85c;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #4cae4c;
+}
+
+a {
+    color: #007bff;
+    text-decoration: none;
+    margin-left: 5px;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
