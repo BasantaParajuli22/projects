@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Validator</title>
+    <link rel="stylesheet" href="valid.css">
+</head>
+<body>
+    <div class="background"></div>
+   
+<div class="mainContainer">
+    <div class="headtitle"><h2>Registration Form</h2></div>
+
+    <form  class="registrationForm" id="registrationSubmit">
+        <div class="form-group">
+            <label for="username">Name:</label>
+            <input type="text" id="username" name="username" placeholder="username"  >
+            <div id="usernameErr" class="error"></div>
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="text" id="email" name="email" placeholder="email" >
+            <div id="emailErr" class="error"></div>
+        </div>
+
+        <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" placeholder="Password " >
+            <div id="passwordErr" class="error"></div>
+        </div>
+
+
+        <div class="form-group">
+            <label for="confirmpassword">Password:</label>
+            <input type="password" id="confirmpassword" name="confirmpassword" placeholder="Confirm your password" >
+            <div id="confirmpasswordErr" class="error"></div>
+        </div>
+
+        <div class="form-group">
+            <label for="phoneno">Phone no:</label>
+            <input type="number" id="phoneno" name="phoneno" >
+            <div id="phonenoErr" class="error"></div>
+        </div>
+
+        <div class="form-group">
+            <label for="country">Country:</label>
+            <select name="country" id="country" value="Select your country">
+                <option value="">Select your country</option>
+                <option value="nepal">Nepal</option>
+                <option value="india">india</option>
+                <option value="australia">australia</option>
+            </select>
+            <div id="countryErr" class="error"></div>
+        </div>
+
+        <div class="form-group">
+            <label for="">Gender:</label>
+            <input type="radio" id="gender" name="genderGroup" value="male" >Male
+            <input type="radio" id="gender" name="genderGroup" value="female">Female
+            <div id="genderErr" class="error"></div>
+        </div>
+
+        <div class="form-group">
+            <label for="terms">Terms and conditoins:</label>
+            <input type="checkbox" id="terms" name="terms">I accept all the terms and conditions 
+            <a href="#">terms and conditions</a>
+            <div id="termsErr" class="error"></div>
+        </div>
+
+        <button type="submit">Submit</button>
+    </form>
+</div>
+    <script src="valid.js"></script>
+</body>
+</html>
