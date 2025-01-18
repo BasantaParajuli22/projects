@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Validator</title>
+    <link rel="stylesheet" href="valid.css">
+</head>
+<body>
+<div class="mainContainer">
+    <div class="headtitle"><h2>Registration Form</h2></div>
+    <form id="registrationForm">
+        <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" name="name" id="name">
+            <span id="nameError" class="error"></span>
+        </div>
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="text" name="email" id="email">
+            <span id="emailError" class="error"></span>
+        </div>
+        <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" name="password" id="password">
+            <span id="passwordError" class="error"></span>
+        </div>
+        <div class="form-group">
+            <label for="confirmpassword">Confirm Password:</label>
+            <input type="password" name="confirmpassword" id="confirmpassword">
+            <span id="confirmpasswordError" class="error"></span>
+        </div>
+        <div class="form-group">
+            <label for="country">Country:</label>
+            <select name="country" id="selectcountry">
+                <option value="">Select your country</option>
+                <option value="nepal">Nepal</option>
+                <option value="china">China</option>
+                <option value="australia">Australia</option>
+            </select>
+            <span id="countryError" class="error"></span>
+        </div>
+        <div class="form-group">
+            <label>Gender:</label>
+            <input type="radio" id="male" name="genderGroup" value="male">
+            <label for="male">Male</label>
+            <input type="radio" id="female" name="genderGroup" value="female">
+            <label for="female">Female</label>
+            <span id="genderError" class="error"></span>
+        </div>
+        
+        <div class="form-group">
+            <input type="checkbox" id="terms" name="terms">
+            <label for="terms">I accept all the <a href="#">terms and conditions</a></label>
+            <span id="termsError" class="error"></span>
+        </div>
+        
+        
+        
+        <button type="submit">Submit</button>
+    </form>
+</div>
+<script src="valid.js"></script>
+</body>
+</html>

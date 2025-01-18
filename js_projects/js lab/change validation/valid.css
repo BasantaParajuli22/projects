@@ -1,0 +1,116 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+}
+
+/* Main Container */
+.mainContainer {
+    max-width: 400px; /* Set a max width for the form */
+    margin: 50px auto; /* Center the form vertically and horizontally */
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Title */
+.headtitle h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Form Group */
+.form-group {
+    display: block;
+    margin-bottom: 20px;
+}
+
+/* Labels */
+.form-group label {
+    display: inline-block;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+/* Inputs */
+.form-group input[type="text"],
+.form-group input[type="password"],
+.form-group select {
+    width: 100%; /* Full width */
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+/* Radio Buttons & Checkboxes */
+.form-group input[type="radio"],
+.form-group input[type="checkbox"] {
+    margin-right: 5px; /* Space between input and label */
+    vertical-align: middle; /* Align with text */
+}
+
+/* Inline Radio & Checkbox Labels */
+.form-group input[type="radio"] + label,
+.form-group input[type="checkbox"] + label {
+    display: inline-block;
+    margin-right: 15px; /* Space between items */
+}
+
+/* Error Messages */
+.error {
+    display: block;
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+/* Terms and Conditions Link */
+.form-group a {
+    text-decoration: none;
+    color: #007bff;
+    font-size: 14px;
+}
+
+.form-group a:hover {
+    text-decoration: underline;
+}
+
+/* Submit Button */
+button[type="submit"] {
+    width: 100%;
+    background-color: #007bff;
+    color: #ffffff;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s;
+}
+
+button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+    .mainContainer {
+        padding: 15px;
+    }
+
+    .form-group label {
+        font-size: 14px;
+    }
+
+    button[type="submit"] {
+        font-size: 14px;
+    }
+}
