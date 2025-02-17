@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="content.css">
+</head>
+<body>
+    <div class="container">
+        
+        <!--  
+            displaying content according button id 
+            content id 1 button 1
+            content id 2 button 
+            content id 3 button 3
+        -->
+
+        <div class="button-group">
+            <button onclick="showContent(1)" id="btn1" class="tab-button">Button 1</button>
+            <button onclick="showContent(2)" id="btn2" class="tab-button">Button 2</button>
+            <button onclick="showContent(3)" id="btn3" class="tab-button">Button 3</button>
+        </div>
+
+        <div id="content1" class="content">
+            <h2>Content 1</h2>
+            <p>This is the content for button 1. Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+               Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        </div>
+
+        <div id="content2" class="content">
+            <h2>Content 2</h2>
+            <p>Welcome to content 2! Here you can find different information. Ut enim ad minim veniam, 
+               quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        </div>
+
+        <div id="content3" class="content">
+            <h2>Content 3</h2>
+            <p>And finally, content 3 is displayed. Duis aute irure dolor in reprehenderit in voluptate 
+               velit esse cillum dolore eu fugiat nulla pariatur.</p>
+        </div>
+    </div>
+
+  <script src="content.js"></script>
+</body>
+</html>
